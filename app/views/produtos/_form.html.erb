@@ -1,0 +1,34 @@
+<%= form_for(@produto, :html => {:class => 'form-horizontal'}) do |f| %>
+	<div class="form-group">
+		<%= f.label :nome, class: "col-md-2" %>
+		<div class="col-md-6">
+			<%= f.text_field :nome, class: "form-control" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :descricao, class: "col-md-2" %>
+		<div class="col-md-6">
+			<%= f.text_area :descricao, class: "form-control", rows: "6" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :departamento, class: "col-md-2" %>
+		<div class="col-md-2">
+			<%= f.collection_select :departamento_id, @departamentos, :id, :nome, {}, class: "form-control" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :quantidade, class: "col-md-2" %>
+		<div class="col-md-2">
+			<%= f.number_field :quantidade, step: 1, class: "form-control" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :preco, class: "col-md-2" %>
+		<div class="col-md-2">
+			<%= f.number_field :preco, class: "form-control" %>
+		</div>
+	</div>
+
+	<%= f.submit text_button, class: "btn btn-primary" %>
+<% end %>
